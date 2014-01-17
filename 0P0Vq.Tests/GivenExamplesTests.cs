@@ -1,4 +1,6 @@
-﻿using Xunit;
+﻿using System.Linq;
+using SimpleInjector;
+using Xunit;
 
 namespace _0P0Vq.Tests
 {
@@ -13,7 +15,15 @@ namespace _0P0Vq.Tests
             var k = 2;
             var startIndexes = new[] { 0, 1 };
 
+            var container = new Container();
 
+            var calulator = container.GetInstance<ExpenseCalculator>() as IExpenseCalculator;
+
+            var expenses = calulator.CalculateExpenses(n, connections, k, startIndexes).ToArray();
+
+            Assert.NotEmpty(expenses);
+            Assert.Equal(expenses[0], 1);
+            Assert.Equal(expenses[1], 2);
         }
     }
 }

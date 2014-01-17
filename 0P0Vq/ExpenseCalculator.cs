@@ -6,21 +6,28 @@ using System.Threading.Tasks;
 
 namespace _0P0Vq
 {
-    public class ExpenseCalculator
+    public interface IExpenseCalculator
+    {
+        IEnumerable<int> CalculateExpenses();
+        IEnumerable<int> CalculateExpenses(int n, int[][] connections, int k, int[] startIndexes);
+    }
+
+    public class ExpenseCalculator : IExpenseCalculator
     {
         public ExpenseCalculator()
         {
-            
+
         }
 
-        public IEnumerable<Expense> CalculateExpenses()
+        public IEnumerable<int> CalculateExpenses()
         {
-            
+            return null;
+        }
 
+        public IEnumerable<int> CalculateExpenses(int n, int[][] connections, int k, int[] startIndexes)
+        {
+            return null;
         }
     }
 
-    public class Expense
-    {
-    }
 }
